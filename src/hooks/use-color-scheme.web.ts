@@ -8,6 +8,7 @@ export function useColorScheme() {
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydratation web : le thème système n'est lisible qu'après le montage, ce setState évite un mismatch SSR. Fichier .web uniquement, jamais exécuté sur mobile.
     setHasHydrated(true);
   }, []);
 
